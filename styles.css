@@ -131,6 +131,21 @@ button,input,textarea,select{font:inherit}
   color:var(--text);
 }
 
+.nav-phone{
+  color:var(--text) !important;
+  font-weight:700 !important;
+  text-decoration:none;
+  padding:10px 12px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.03);
+}
+
+.nav-phone:hover{
+  border-color:var(--line-strong);
+  background:rgba(255,255,255,.05);
+}
+
 .btn{
   display:inline-flex;
   align-items:center;
@@ -288,6 +303,31 @@ h1{
   box-shadow:0 0 0 5px rgba(94,234,212,.08);
 }
 
+.hero-direct{
+  margin:14px 0 18px;
+  padding:12px 14px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:rgba(255,255,255,.03);
+  color:var(--muted);
+}
+
+.hero-direct span{
+  color:var(--muted-2);
+  font-weight:700;
+  margin-right:8px;
+}
+
+.hero-direct a{
+  color:var(--brand);
+  font-weight:800;
+  text-decoration:none;
+}
+
+.hero-direct a:hover{
+  text-decoration:underline;
+}
+
 .hero-note{
   max-width:620px;
   padding:14px 16px;
@@ -355,6 +395,15 @@ h1{
   font-weight:700;
   font-size:14px;
   line-height:1.5;
+}
+
+.stat-value a{
+  color:var(--brand);
+  text-decoration:none;
+}
+
+.stat-value a:hover{
+  text-decoration:underline;
 }
 
 .panel-divider{
@@ -647,6 +696,52 @@ h1{
   text-decoration:underline;
 }
 
+.contact-form{
+  display:grid;
+  gap:14px;
+  margin-top:14px;
+}
+
+.form-row{
+  display:grid;
+  gap:8px;
+}
+
+.form-row label{
+  font-size:13px;
+  font-weight:700;
+  color:var(--text);
+}
+
+.form-row input,
+.form-row textarea{
+  width:100%;
+  padding:14px 14px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(0,0,0,.18);
+  color:var(--text);
+  outline:none;
+  transition:border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+.form-row input::placeholder,
+.form-row textarea::placeholder{
+  color:var(--muted-2);
+}
+
+.form-row input:focus,
+.form-row textarea:focus{
+  border-color:rgba(94,234,212,.45);
+  box-shadow:0 0 0 4px rgba(94,234,212,.08);
+  background:rgba(255,255,255,.03);
+}
+
+.form-row textarea{
+  resize:vertical;
+  min-height:140px;
+}
+
 .mini{
   margin-top:16px;
   padding-top:16px;
@@ -765,6 +860,11 @@ h1{
 
   .nav a{
     font-size:13px;
+  }
+
+  .nav-phone{
+    width:100%;
+    text-align:center;
   }
 
   .hero{
