@@ -539,6 +539,10 @@ h1{
   background:linear-gradient(135deg, var(--brand), var(--brand-2));
 }
 
+.proof-cards{
+  margin-top:18px;
+}
+
 .grid-2{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -627,6 +631,10 @@ h1{
 
 .compliance-callout{
   max-width:900px;
+}
+
+#documents .strip{
+  margin-top:20px;
 }
 
 .coverage-grid{
