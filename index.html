@@ -3,411 +3,529 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Thank You | Tom Maintenance</title>
-  <meta name="description" content="Thank you for contacting Tom Maintenance. Your enquiry has been received." />
-  <meta name="robots" content="noindex,nofollow" />
+  <title>Tom Maintenance | Construction Site, Welfare, Builders & Sparkle Cleaning</title>
+  <meta
+    name="description"
+    content="Construction site cleaning, welfare unit cleaning, builders cleans and sparkle cleans for housebuilders, main contractors and civils / infrastructure contractors across Leicestershire and the Midlands."
+  />
+  <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#08111f" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --bg:#08111f;
-      --text:#ecf3ff;
-      --muted:#aebbd5;
-      --muted-2:#7f94ba;
-      --line:rgba(255,255,255,.10);
-      --line-strong:rgba(255,255,255,.16);
-      --brand:#5eead4;
-      --brand-2:#60a5fa;
-      --success:#25D366;
-      --shadow:0 18px 50px rgba(0,0,0,.34);
-      --shadow-soft:0 10px 30px rgba(0,0,0,.22);
-      --radius:24px;
-      --max:1100px;
-      --font:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:var(--font);
-      color:var(--text);
-      background:
-        radial-gradient(900px 500px at 10% 0%, rgba(94,234,212,.10), transparent 60%),
-        radial-gradient(1000px 600px at 100% 0%, rgba(96,165,250,.16), transparent 55%),
-        linear-gradient(180deg, #06101d 0%, #08111f 35%, #07101b 100%);
-      min-height:100vh;
-      line-height:1.5;
-    }
-
-    a{color:inherit}
-    .container{
-      width:min(var(--max), calc(100% - 32px));
-      margin:0 auto;
-    }
-
-    .page{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:36px 0;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .page::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      background:
-        radial-gradient(700px 360px at 15% 15%, rgba(94,234,212,.08), transparent 60%),
-        radial-gradient(700px 420px at 85% 10%, rgba(96,165,250,.12), transparent 58%);
-    }
-
-    .wrap{
-      position:relative;
-      width:100%;
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:22px;
-      align-items:stretch;
-    }
-
-    .card,
-    .side{
-      position:relative;
-      overflow:hidden;
-      border:1px solid var(--line);
-      border-radius:28px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)),
-        rgba(0,0,0,.18);
-      box-shadow:var(--shadow);
-    }
-
-    .card{
-      padding:30px;
-    }
-
-    .side{
-      padding:26px;
-    }
-
-    .glow{
-      position:absolute;
-      width:200px;
-      height:200px;
-      right:-50px;
-      top:-50px;
-      border-radius:50%;
-      background:radial-gradient(circle, rgba(96,165,250,.18), transparent 70%);
-      pointer-events:none;
-    }
-
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      min-height:34px;
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.08);
-      background:rgba(255,255,255,.04);
-      color:var(--text);
-      font-size:12px;
-      font-weight:700;
-      margin-bottom:14px;
-      box-shadow:var(--shadow-soft);
-    }
-
-    .check{
-      width:64px;
-      height:64px;
-      border-radius:18px;
-      display:grid;
-      place-items:center;
-      margin-bottom:18px;
-      color:#08111f;
-      font-weight:900;
-      font-size:30px;
-      background:linear-gradient(135deg, #25D366, #5eead4);
-      box-shadow:0 14px 30px rgba(37,211,102,.22);
-    }
-
-    h1{
-      margin:0 0 12px;
-      font-size:clamp(34px, 5vw, 56px);
-      line-height:1.02;
-      letter-spacing:-1.2px;
-    }
-
-    .lead{
-      margin:0 0 20px;
-      color:var(--muted);
-      font-size:18px;
-      line-height:1.75;
-      max-width:58ch;
-    }
-
-    .status{
-      display:grid;
-      gap:12px;
-      margin:0 0 22px;
-    }
-
-    .status-item{
-      padding:14px 16px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.08);
-      background:rgba(0,0,0,.14);
-    }
-
-    .status-item strong{
-      display:block;
-      margin-bottom:4px;
-      font-size:14px;
-    }
-
-    .status-item span{
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.65;
-    }
-
-    .cta-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:8px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      min-height:48px;
-      padding:12px 18px;
-      border-radius:14px;
-      border:1px solid transparent;
-      text-decoration:none;
-      font-weight:800;
-      letter-spacing:.1px;
-      color:#07101a;
-      background:linear-gradient(135deg, var(--brand), var(--brand-2));
-      box-shadow:0 14px 30px rgba(0,0,0,.24);
-      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
-    }
-
-    .btn:hover{
-      transform:translateY(-1px);
-      box-shadow:0 18px 32px rgba(0,0,0,.30);
-    }
-
-    .btn-ghost{
-      background:rgba(255,255,255,.03);
-      color:var(--text);
-      border-color:var(--line);
-      box-shadow:none;
-    }
-
-    .btn-ghost:hover{
-      border-color:var(--line-strong);
-      background:rgba(255,255,255,.05);
-    }
-
-    .side h2{
-      margin:0 0 14px;
-      font-size:20px;
-      letter-spacing:-.3px;
-    }
-
-    .side-list{
-      list-style:none;
-      padding:0;
-      margin:0 0 18px;
-      display:grid;
-      gap:10px;
-    }
-
-    .side-list li{
-      position:relative;
-      padding-left:28px;
-      color:var(--muted);
-      line-height:1.7;
-    }
-
-    .side-list li::before{
-      content:"✓";
-      position:absolute;
-      left:0;
-      top:0;
-      color:var(--brand);
-      font-weight:900;
-    }
-
-    .contact-box{
-      display:grid;
-      gap:10px;
-      margin-top:14px;
-    }
-
-    .contact-line{
-      display:flex;
-      justify-content:space-between;
-      gap:14px;
-      padding:14px 16px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.08);
-      background:rgba(0,0,0,.14);
-    }
-
-    .contact-line span{
-      color:var(--muted-2);
-      font-size:13px;
-      font-weight:700;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-    }
-
-    .contact-line a{
-      color:var(--brand);
-      font-weight:800;
-      text-decoration:none;
-      text-align:right;
-      word-break:break-word;
-    }
-
-    .contact-line a:hover{
-      text-decoration:underline;
-    }
-
-    .footer-note{
-      margin-top:18px;
-      padding-top:16px;
-      border-top:1px solid var(--line);
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.7;
-    }
-
-    @media (max-width: 980px){
-      .wrap{
-        grid-template-columns:1fr;
-      }
-    }
-
-    @media (max-width: 760px){
-      .page{
-        padding:20px 0;
-      }
-
-      .card,
-      .side{
-        padding:22px;
-        border-radius:24px;
-      }
-
-      h1{
-        font-size:clamp(30px, 10vw, 44px);
-      }
-
-      .lead{
-        font-size:16px;
-      }
-
-      .cta-row{
-        flex-direction:column;
-      }
-
-      .cta-row .btn{
-        width:100%;
-      }
-
-      .contact-line{
-        flex-direction:column;
-        align-items:flex-start;
-      }
-
-      .contact-line a{
-        text-align:left;
-      }
-    }
-  </style>
+  <meta property="og:title" content="Tom Maintenance | Construction Cleaning" />
+  <meta property="og:description" content="Contractor-focused construction site cleaning, welfare unit cleaning, builders cleans and sparkle cleans across Leicestershire and the Midlands." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="page">
-    <div class="container">
-      <div class="wrap">
-        <section class="card" aria-label="Thank you message">
-          <div class="glow"></div>
-          <div class="badge">Enquiry received</div>
-          <div class="check">✓</div>
+  <header class="site-header">
+    <div class="container header-grid">
+      <a class="brand" href="#top" aria-label="Tom Maintenance home">
+        <span class="brand-mark">TM</span>
+        <span class="brand-text">
+          <span class="brand-name">Tom Maintenance</span>
+          <span class="brand-tag">Contractor-facing construction cleaning</span>
+        </span>
+      </a>
 
-          <h1>Thanks — your enquiry has been sent.</h1>
-
-          <p class="lead">
-            We’ve received your message and will review the scope, location and timing provided. If the project is a fit, we’ll respond with availability and next steps.
-          </p>
-
-          <div class="status">
-            <div class="status-item">
-              <strong>What happens next</strong>
-              <span>We review the site details, scope, preferred start date and any access or induction requirements.</span>
-            </div>
-
-            <div class="status-item">
-              <strong>Best follow-up</strong>
-              <span>If the enquiry is urgent, call or send a WhatsApp message so we can assess availability faster.</span>
-            </div>
-          </div>
-
-          <div class="cta-row">
-            <a class="btn" href="/tom-maintenance-v2/">Back to website</a>
-            <a class="btn btn-ghost" href="/tom-maintenance-v2/#contact">Send another enquiry</a>
-          </div>
-        </section>
-
-        <aside class="side" aria-label="Contact options">
-          <div class="glow"></div>
-          <h2>Direct contact</h2>
-
-          <ul class="side-list">
-            <li>Construction site cleaning</li>
-            <li>Welfare unit cleaning</li>
-            <li>Builders cleans and sparkle cleans</li>
-            <li>Leicestershire and wider Midlands coverage</li>
-          </ul>
-
-          <div class="contact-box">
-            <div class="contact-line">
-              <span>Phone</span>
-              <a href="tel:+447864007256">07864 007256</a>
-            </div>
-
-            <div class="contact-line">
-              <span>WhatsApp</span>
-              <a href="https://wa.me/447864007256?text=Hello%20Tom%20Maintenance%2C%20I%20have%20a%20site%20cleaning%20enquiry." target="_blank" rel="noopener">Message on WhatsApp</a>
-            </div>
-
-            <div class="contact-line">
-              <span>Email</span>
-              <a href="mailto:info@tommaintenance.co.uk">info@tommaintenance.co.uk</a>
-            </div>
-          </div>
-
-          <div class="footer-note">
-            Tom Maintenance provides contractor-focused cleaning support for live sites, welfare areas and handover-ready plots.
-          </div>
-        </aside>
-      </div>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#services">Services</a>
+        <a href="#project-support">Project support</a>
+        <a href="#compliance">Compliance</a>
+        <a href="#coverage">Coverage</a>
+        <a class="btn btn-small btn-nav" href="#contact">Contact</a>
+      </nav>
     </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-shell">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">Contractor-only • Live sites • Welfare units • Builders cleans • Sparkle cleans</span>
+
+            <h1>Professional construction cleaning support for live sites, welfare areas and handover stages.</h1>
+
+            <p class="lead lead-hero">
+              <strong>Tom Maintenance</strong> provides <strong>construction site cleaning</strong>,
+              <strong>welfare unit cleaning</strong>, <strong>builders cleans</strong> and
+              <strong>sparkle cleans</strong> for <strong>housebuilders</strong>,
+              <strong>main contractors</strong> and <strong>civils / infrastructure contractors</strong>.
+            </p>
+
+            <p class="lead lead-hero">
+              Built for practical contractor-facing work across <strong>Leicestershire and the Midlands</strong>,
+              with clear communication, reliable attendance and straightforward site support.
+            </p>
+
+            <div class="cta-row hero-cta">
+              <a class="btn" href="tel:+447864007256">Call 07864 007256</a>
+              <a class="btn btn-ghost btn-whatsapp" href="https://wa.me/447864007256?text=Hello%20Tom%20Maintenance%2C%20I%20would%20like%20to%20ask%20about%20site%20cleaning." target="_blank" rel="noopener noreferrer">WhatsApp enquiry</a>
+              <a class="btn btn-outline" href="#contact">Request availability</a>
+            </div>
+
+            <div class="hero-badges" aria-label="Key trust points">
+              <span>Contractor-only service</span>
+              <span>£5m Public Liability Insurance</span>
+              <span>RAMS &amp; COSHH information available</span>
+              <span>Regional Midlands coverage</span>
+            </div>
+
+            <div class="hero-note">
+              <strong>Designed around real site needs:</strong> welfare hygiene, active site presentation,
+              plot preparation, inspection readiness and pre-handover cleaning support.
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="Quick facts and enquiry guidance">
+            <div class="hero-card-top">
+              <span class="eyebrow">Quick facts</span>
+              <span class="status-pill">B2B construction only</span>
+            </div>
+
+            <h2>Clear contractor-facing support without domestic-cleaning positioning.</h2>
+
+            <div class="facts">
+              <div class="fact">
+                <div class="fact-label">Core services</div>
+                <div class="fact-value">Site cleaning, welfare cleaning, builders cleans and sparkle cleans</div>
+              </div>
+              <div class="fact">
+                <div class="fact-label">Typical clients</div>
+                <div class="fact-value">Housebuilders, main contractors and civils / infrastructure teams</div>
+              </div>
+              <div class="fact">
+                <div class="fact-label">Insurance</div>
+                <div class="fact-value">Public Liability Insurance £5 million</div>
+              </div>
+              <div class="fact">
+                <div class="fact-label">Coverage</div>
+                <div class="fact-value">Leicestershire and the Midlands</div>
+              </div>
+            </div>
+
+            <div class="hero-side-note">
+              <strong>Fastest way to get a reply:</strong> send the site postcode, required scope, frequency,
+              preferred start date and any induction or access requirements.
+            </div>
+
+            <div class="hero-card-actions">
+              <a class="btn btn-block" href="#contact">Send project details</a>
+              <button class="btn btn-outline btn-block" id="copyEmailBtn" type="button">Copy email address</button>
+            </div>
+
+            <div class="mini mini-tight">
+              <h4>Email</h4>
+              <p class="quick-email"><a href="mailto:info@tommaintenance.co.uk">info@tommaintenance.co.uk</a></p>
+            </div>
+          </aside>
+        </div>
+
+        <div class="hero-trust-strip" aria-label="Business trust strip">
+          <div class="trust-chip">
+            <strong>Who we work with</strong>
+            <span>Housebuilders, main contractors and civils / infrastructure contractors</span>
+          </div>
+          <div class="trust-chip">
+            <strong>Project focus</strong>
+            <span>Live sites, welfare areas, plot preparation, inspection and handover stages</span>
+          </div>
+          <div class="trust-chip">
+            <strong>Operational approach</strong>
+            <span>Clear communication, practical attendance and project-specific requirements review</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-bar" aria-label="Trust signals">
+      <div class="container trust-grid">
+        <div class="trust-item">
+          <span class="trust-title">Contractor-only positioning</span>
+          <span class="trust-text">Construction and site cleaning only — no domestic work.</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-title">Insurance in place</span>
+          <span class="trust-text">Public Liability Insurance £5 million.</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-title">Project paperwork approach</span>
+          <span class="trust-text">RAMS and COSHH information available per project scope.</span>
+        </div>
+        <div class="trust-item">
+          <span class="trust-title">Regional support</span>
+          <span class="trust-text">Leicestershire and wider Midlands contractor coverage.</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Services</span>
+          <h2>Cleaning services aligned to real construction site requirements</h2>
+          <p>
+            Focused on the work areas and project stages that matter to contractors: welfare hygiene,
+            active site presentation, plot preparation and handover cleaning support.
+          </p>
+        </div>
+
+        <div class="cards cards-3 service-cards">
+          <article class="card service-card">
+            <div class="card-icon">01</div>
+            <h3>Construction site cleaning</h3>
+            <p class="card-intro">Practical support for active construction environments and shared working areas.</p>
+            <ul>
+              <li>Live-site cleaning support</li>
+              <li>Access routes, stairs, landings and shared traffic areas</li>
+              <li>Dust reduction and practical wipe-downs in active zones</li>
+              <li>General cleaning support around programme requirements</li>
+              <li>Waste handling support as directed by site management</li>
+            </ul>
+          </article>
+
+          <article class="card service-card">
+            <div class="card-icon">02</div>
+            <h3>Welfare unit cleaning</h3>
+            <p class="card-intro">Cleaner welfare areas for staff, trades, visitors and day-to-day site operation.</p>
+            <ul>
+              <li>Canteens, drying rooms, offices and meeting spaces</li>
+              <li>Toilets, showers, wash stations and welfare touchpoints</li>
+              <li>Regular scheduled cleaning or call-out support</li>
+              <li>Consumables replenishment if supplied by site</li>
+              <li>Suitable for ongoing welfare hygiene requirements</li>
+            </ul>
+          </article>
+
+          <article class="card service-card">
+            <div class="card-icon">03</div>
+            <h3>Builders cleans &amp; sparkle cleans</h3>
+            <p class="card-intro">Inspection-ready internal cleaning before client visits, snagging and handover stages.</p>
+            <ul>
+              <li>Pre-handover and plot cleaning support</li>
+              <li>Inspection-ready cleaning for internal areas</li>
+              <li>Frames, sills, skirtings, internal surfaces and touchpoints</li>
+              <li>Careful, snag-aware finishing approach</li>
+              <li>Support ahead of inspections, client visits and handover stages</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="project-support" class="section section-alt">
+      <div class="container">
+        <div class="section-head section-head-narrow">
+          <span class="eyebrow">Project support</span>
+          <h2>Typical support across live sites, welfare spaces and pre-handover stages</h2>
+          <p>
+            Structured around the cleaning needs that affect site standards, welfare conditions,
+            inspection readiness and presentation before handover.
+          </p>
+        </div>
+
+        <div class="proof-strip">
+          <div class="proof-strip-head">
+            <h3>Where the service fits</h3>
+            <p>Relevant for regional and smaller contractor requirements where fast, practical support matters.</p>
+          </div>
+          <div class="proof-grid">
+            <div class="proof-item">
+              <strong>Live construction sites</strong>
+              <span>Cleaning support for active work areas, shared site spaces and access routes.</span>
+            </div>
+            <div class="proof-item">
+              <strong>Welfare areas</strong>
+              <span>Toilets, wash areas, canteens, drying rooms, offices and staff welfare spaces.</span>
+            </div>
+            <div class="proof-item">
+              <strong>Plots before handover</strong>
+              <span>Builders cleans and sparkle cleans ahead of inspection, client visit or handover stage.</span>
+            </div>
+            <div class="proof-item">
+              <strong>Regional contractor support</strong>
+              <span>Suitable for smaller and regional contractor requirements across the Midlands.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-us" class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Why Tom Maintenance</span>
+          <h2>A practical contractor-facing fit, not a generic cleaning company</h2>
+          <p>
+            Positioned specifically for construction environments, with clear communication,
+            practical attendance and project-relevant cleaning support.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="panel panel-highlight">
+            <h3>What decision-makers need</h3>
+            <ul class="ticks">
+              <li>Reliable attendance and straightforward communication</li>
+              <li>Cleaner welfare areas and better site presentation</li>
+              <li>Practical support before inspections and handover</li>
+              <li>Fast, simple contact routes</li>
+              <li>No confusion with domestic cleaning services</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3>How the work is approached</h3>
+            <ul class="ticks">
+              <li>Scope reviewed before attendance</li>
+              <li>Work aligned to site induction and rules</li>
+              <li>RAMS and COSHH information prepared per project scope</li>
+              <li>PPE aligned to task and site-specific requirements</li>
+              <li>Availability confirmed against site postcode, timing and access</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="compliance" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Compliance &amp; onboarding</span>
+          <h2>Clear contractor-facing wording without inflated claims</h2>
+          <p>
+            Compliance information is presented in line with project scope, onboarding route
+            and site-specific requirements. The goal is practical readiness, not overclaiming.
+          </p>
+        </div>
+
+        <div class="cards cards-2">
+          <article class="card">
+            <h3>Core compliance approach</h3>
+            <ul class="ticks">
+              <li><strong>Public Liability Insurance:</strong> £5 million</li>
+              <li><strong>RAMS:</strong> available and adjusted to project scope where required</li>
+              <li><strong>COSHH:</strong> product information and safe-use controls available for products used</li>
+              <li><strong>Inductions:</strong> work carried out in line with contractor onboarding and site rules</li>
+              <li><strong>PPE:</strong> aligned to task and site-specific requirements</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Project access and requirements</h3>
+            <ul class="ticks">
+              <li>Site access and onboarding requirements reviewed per project</li>
+              <li>Additional client or developer requirements assessed per project basis</li>
+              <li>Compliance / capability information available to support onboarding discussions</li>
+              <li>Completed items stated only where confirmed and documented</li>
+              <li>Contractor and construction cleaning only</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="compliance-note">
+          <strong>Compliance / capability information available on request.</strong>
+          Final site access steps, induction requirements, permit systems and project-specific onboarding items may vary by contractor, developer and site.
+        </div>
+      </div>
+    </section>
+
+    <section id="coverage" class="section">
+      <div class="container">
+        <div class="section-head section-head-narrow">
+          <span class="eyebrow">Coverage</span>
+          <h2>Leicestershire and Midlands coverage</h2>
+          <p>
+            Suitable for local and regional contractor work, subject to site scope, timing and access arrangements.
+          </p>
+        </div>
+
+        <div class="coverage">
+          <div class="coverage-box">
+            <h3>Primary area</h3>
+            <p>Leicester • Loughborough • Hinckley • Market Harborough</p>
+            <p>Plus nearby towns, industrial areas and surrounding contractor sites.</p>
+          </div>
+
+          <div class="coverage-box">
+            <h3>Wider Midlands</h3>
+            <p>Derby • Nottingham • Coventry • Birmingham</p>
+            <p>Project dependent and agreed around programme, travel and site hours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Contact</span>
+          <h2>Send the site details for availability and next steps</h2>
+          <p>
+            The quickest way to move forward is by phone, WhatsApp or direct email with the site postcode,
+            required scope, frequency and preferred start date.
+          </p>
+        </div>
+
+        <div class="contact-grid contact-grid-updated">
+          <div class="contact-card contact-card-primary">
+            <div class="contact-card-head">
+              <h3>Direct contact</h3>
+              <p>Fast routes for buyers, site managers and contractor teams.</p>
+            </div>
+
+            <div class="contact-line-grid">
+              <p class="contact-line">
+                <span>Email</span>
+                <a href="mailto:info@tommaintenance.co.uk">info@tommaintenance.co.uk</a>
+              </p>
+              <p class="contact-line">
+                <span>Phone</span>
+                <a href="tel:+447864007256">07864 007256</a>
+              </p>
+              <p class="contact-line">
+                <span>WhatsApp</span>
+                <a href="https://wa.me/447864007256?text=Hello%20Tom%20Maintenance%2C%20I%20would%20like%20to%20ask%20about%20site%20cleaning." target="_blank" rel="noopener noreferrer">Message on WhatsApp</a>
+              </p>
+            </div>
+
+            <div class="contact-cta-stack">
+              <a class="btn btn-block" href="tel:+447864007256">Call now</a>
+              <a class="btn btn-ghost btn-block" href="https://wa.me/447864007256?text=Hello%20Tom%20Maintenance%2C%20I%20would%20like%20to%20ask%20about%20site%20cleaning." target="_blank" rel="noopener noreferrer">Open WhatsApp</a>
+              <button class="btn btn-outline btn-block" id="copyEmailBtn2" type="button">Copy email address</button>
+            </div>
+
+            <div class="mini">
+              <h4>What to include</h4>
+              <ul>
+                <li>Company name and contact name</li>
+                <li>Site name and postcode</li>
+                <li>Required service and scope</li>
+                <li>Frequency and preferred start date</li>
+                <li>Any induction, access or site-specific requirements</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="message-card">
+            <div class="message-card-head">
+              <h3>Prepared enquiry message</h3>
+              <p class="lead lead-small">
+                Copy the template below and send it by email or WhatsApp.
+              </p>
+            </div>
+
+            <div class="message-box" id="enquiryTemplate">Company name:
+
+Contact name:
+Phone:
+Email:
+
+Site name:
+Site postcode:
+
+Required service:
+- Construction site cleaning / Welfare unit cleaning / Builders clean / Sparkle clean / Mixed scope
+
+Scope details:
+
+Frequency:
+Preferred start date:
+Site hours:
+
+Any site rules, induction or access requirements:</div>
+
+            <div class="action-stack action-stack-split">
+              <button class="btn btn-block" id="copyTemplateBtn" type="button">Copy enquiry template</button>
+              <div class="action-inline">
+                <a class="btn btn-ghost btn-block" href="mailto:info@tommaintenance.co.uk?subject=Site%20cleaning%20enquiry&body=Company%20name%3A%0AContact%20name%3A%0APhone%3A%0AEmail%3A%0A%0ASite%20name%3A%0ASite%20postcode%3A%0A%0ARequired%20service%3A%0A-%20Construction%20site%20cleaning%20%2F%20Welfare%20unit%20cleaning%20%2F%20Builders%20clean%20%2F%20Sparkle%20clean%20%2F%20Mixed%20scope%0A%0AScope%20details%3A%0A%0AFrequency%3A%0APreferred%20start%20date%3A%0ASite%20hours%3A%0A%0AAny%20site%20rules%2C%20induction%20or%20access%20requirements%3A">Open email draft</a>
+                <a class="btn btn-outline btn-block" href="https://wa.me/447864007256?text=Hello%20Tom%20Maintenance%2C%20please%20see%20my%20site%20cleaning%20enquiry%20below.%0A%0ACompany%20name%3A%0AContact%20name%3A%0APhone%3A%0AEmail%3A%0A%0ASite%20name%3A%0ASite%20postcode%3A%0A%0ARequired%20service%3A%0A%0AScope%20details%3A%0A%0AFrequency%3A%0APreferred%20start%20date%3A%0ASite%20hours%3A%0A%0AAny%20site%20rules%2C%20induction%20or%20access%20requirements%3A" target="_blank" rel="noopener noreferrer">Open WhatsApp draft</a>
+              </div>
+            </div>
+
+            <div class="status" id="copyStatus" aria-live="polite"></div>
+
+            <div class="mini mini-business">
+              <h4>Business details</h4>
+              <p class="business-details">
+                Trading name: <strong>Tom Maintenance</strong><br>
+                Sector: <strong>Construction cleaning</strong><br>
+                Services: <strong>Site cleaning, welfare cleaning, builders cleans, sparkle cleans</strong><br>
+                Coverage: <strong>Leicestershire and Midlands</strong><br>
+                Insurance: <strong>Public Liability Insurance £5 million</strong><br>
+                Email: <strong>info@tommaintenance.co.uk</strong><br>
+                Phone: <strong>07864 007256</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <footer class="footer">
+          <div class="footer-grid">
+            <p>
+              © <span id="year"></span> Tom Maintenance. Contractor and construction cleaning only.<br>
+              Construction site cleaning, welfare unit cleaning, builders cleans and sparkle cleans for contractor-facing work.
+            </p>
+
+            <div class="footer-links">
+              <a href="mailto:info@tommaintenance.co.uk">info@tommaintenance.co.uk</a>
+              <a href="tel:+447864007256">07864 007256</a>
+              <a href="https://wa.me/447864007256" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </section>
   </main>
+
+  <a class="floating-btn floating-phone" href="tel:+447864007256" aria-label="Call Tom Maintenance" title="Call Tom Maintenance">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.11.37 2.3.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.28.2 2.47.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/>
+    </svg>
+    <span>Call</span>
+  </a>
+
+  <a class="floating-btn floating-whatsapp" href="https://wa.me/447864007256?text=Hello%20Tom%20Maintenance%2C%20I%20would%20like%20to%20ask%20about%20site%20cleaning." target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M19.11 17.33c-.27-.13-1.61-.8-1.86-.89-.25-.09-.43-.13-.61.14-.18.27-.7.89-.86 1.07-.16.18-.32.2-.59.07-.27-.13-1.14-.42-2.18-1.34-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.54.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.13-.61-1.47-.84-2.01-.22-.53-.44-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.13.18 1.92 2.94 4.65 4.12.65.28 1.16.45 1.56.58.66.21 1.26.18 1.73.11.53-.08 1.61-.66 1.84-1.29.23-.63.23-1.17.16-1.29-.07-.11-.25-.18-.52-.32zM16.03 27.5h-.01a11.3 11.3 0 0 1-5.76-1.58l-.41-.24-4.28 1.12 1.14-4.17-.27-.43a11.32 11.32 0 1 1 9.59 5.3zm9.63-20.9A13.5 13.5 0 0 0 2.57 20.84L1 31l10.41-1.53a13.49 13.49 0 0 0 6.45 1.64h.01A13.5 13.5 0 0 0 25.66 6.6z"/>
+    </svg>
+    <span>WhatsApp</span>
+  </a>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const email = "info@tommaintenance.co.uk";
+    const templateText = document.getElementById("enquiryTemplate").innerText;
+    const copyStatus = document.getElementById("copyStatus");
+
+    async function copyText(text, successMessage) {
+      try {
+        await navigator.clipboard.writeText(text);
+        copyStatus.textContent = successMessage;
+      } catch (e) {
+        copyStatus.textContent = "Copy failed. Please copy manually.";
+      }
+
+      clearTimeout(window.copyStatusTimer);
+      window.copyStatusTimer = setTimeout(() => {
+        copyStatus.textContent = "";
+      }, 2600);
+    }
+
+    document.getElementById("copyEmailBtn").addEventListener("click", function () {
+      copyText(email, "Email address copied.");
+    });
+
+    document.getElementById("copyEmailBtn2").addEventListener("click", function () {
+      copyText(email, "Email address copied.");
+    });
+
+    document.getElementById("copyTemplateBtn").addEventListener("click", function () {
+      copyText(templateText, "Enquiry template copied.");
+    });
+  </script>
 </body>
 </html>
