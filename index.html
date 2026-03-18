@@ -20,7 +20,865 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root{
+      --bg:#08111f;
+      --bg-soft:#0d1830;
+      --panel:#101b31;
+      --panel-2:#13213c;
+      --text:#edf4ff;
+      --muted:#b9c7e3;
+      --muted-2:#8ea4cc;
+      --brand:#62e7d5;
+      --brand-2:#6da9ff;
+      --brand-dark:#08111f;
+      --line:rgba(255,255,255,.10);
+      --line-2:rgba(255,255,255,.16);
+      --success:#25D366;
+      --success-2:#128C7E;
+      --phone:#6aa9ff;
+      --phone-2:#2c66e8;
+      --shadow:0 22px 55px rgba(0,0,0,.35);
+      --shadow-soft:0 12px 28px rgba(0,0,0,.22);
+      --radius:24px;
+      --radius-sm:16px;
+      --max:1180px;
+      --font:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+
+    /* NOWE LOGO */
+    .brand-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      line-height: 1;
+      color: #edf4ff;
+      letter-spacing: -0.3px;
+    }
+
+    .logo-line {
+      width: 100%;
+      max-width: 200px;
+      height: 3px;
+      background: #62e7d5;
+      margin-bottom: 6px;
+      border-radius: 2px;
+    }
+
+    .logo-o {
+      color: #F39C12;
+      display: inline-block;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(1050px 680px at 10% 0%, rgba(98,231,213,.11), transparent 58%),
+        radial-gradient(900px 560px at 100% 0%, rgba(109,169,255,.13), transparent 52%),
+        linear-gradient(180deg, #050a14 0%, var(--bg) 28%, #07111f 100%);
+      line-height:1.55;
+    }
+
+    a{color:inherit}
+    img{max-width:100%;display:block}
+    button{font:inherit}
+
+    .container{
+      width:min(var(--max), calc(100% - 40px));
+      margin:0 auto;
+    }
+
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:120;
+      backdrop-filter:saturate(160%) blur(12px);
+      background:rgba(5,11,22,.74);
+      border-bottom:1px solid var(--line);
+    }
+
+    .header-grid{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:14px 0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      min-width:0;
+    }
+
+    .brand-mark{
+      width:48px;
+      height:48px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      font-weight:800;
+      font-size:15px;
+      color:#061120;
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      box-shadow:var(--shadow-soft);
+    }
+
+    .brand-text{
+      display:flex;
+      flex-direction:column;
+      line-height:1.05;
+    }
+
+    .brand-name{
+      font-size:16px;
+      font-weight:800;
+      letter-spacing:.1px;
+    }
+
+    .brand-tag{
+      margin-top:4px;
+      font-size:12px;
+      color:var(--muted-2);
+    }
+
+    .nav{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .nav a{
+      text-decoration:none;
+      color:var(--muted);
+      font-size:14px;
+      font-weight:600;
+      transition:color .18s ease;
+    }
+
+    .nav a:hover{color:var(--text)}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      min-height:48px;
+      padding:12px 18px;
+      border-radius:14px;
+      border:1px solid transparent;
+      text-decoration:none;
+      text-align:center;
+      font-weight:800;
+      letter-spacing:.1px;
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      color:var(--brand-dark);
+      box-shadow:0 12px 24px rgba(0,0,0,.22);
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+      cursor:pointer;
+    }
+
+    .btn:hover{transform:translateY(-1px)}
+    .btn-small{
+      min-height:40px;
+      padding:10px 14px;
+      border-radius:12px;
+      font-size:14px;
+    }
+    .btn-nav{color:#071120 !important}
+    .btn-ghost{
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      border-color:var(--line);
+      box-shadow:none;
+    }
+    .btn-ghost:hover{
+      background:rgba(255,255,255,.05);
+      border-color:var(--line-2);
+    }
+    .btn-outline{
+      background:transparent;
+      color:var(--brand);
+      border-color:rgba(98,231,213,.30);
+      box-shadow:none;
+    }
+    .btn-outline:hover{
+      background:rgba(98,231,213,.06);
+      border-color:rgba(98,231,213,.52);
+    }
+    .btn-block{
+      display:flex;
+      width:100%;
+    }
+
+    .hero{
+      padding:58px 0 28px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.16fr .84fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:13px;
+      font-weight:700;
+    }
+
+    h1{
+      margin:18px 0 14px;
+      max-width:13ch;
+      font-size:clamp(36px, 5vw, 62px);
+      line-height:1.01;
+      letter-spacing:-1.2px;
+    }
+
+    .lead{
+      margin:0 0 14px;
+      max-width:64ch;
+      color:var(--muted);
+      font-size:17px;
+      line-height:1.8;
+    }
+
+    .lead strong{color:var(--text)}
+    .lead-small{
+      font-size:15px;
+      line-height:1.7;
+    }
+
+    .cta-row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin:24px 0 18px;
+    }
+
+    .hero-points{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+
+    .hero-points li{
+      position:relative;
+      padding-left:28px;
+      color:var(--muted);
+      line-height:1.72;
+    }
+
+    .hero-points li::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:.62em;
+      width:10px;
+      height:10px;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+      box-shadow:0 0 0 4px rgba(98,231,213,.10);
+    }
+
+    .hero-note{
+      margin-top:20px;
+      padding:16px 18px;
+      border-radius:16px;
+      border:1px solid rgba(98,231,213,.18);
+      background:linear-gradient(180deg, rgba(98,231,213,.08), rgba(255,255,255,.02));
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    .hero-note strong{color:var(--text)}
+
+    .hero-card{
+      position:relative;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:22px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03)),
+        linear-gradient(180deg, rgba(9,20,37,.95), rgba(9,18,32,.96));
+      box-shadow:var(--shadow);
+    }
+
+    .hero-card::after{
+      content:"";
+      position:absolute;
+      width:190px;
+      height:190px;
+      right:-42px;
+      bottom:-42px;
+      border-radius:999px;
+      background:radial-gradient(circle, rgba(109,169,255,.18), transparent 65%);
+      pointer-events:none;
+    }
+
+    .hero-card h2{
+      margin:10px 0 0;
+      font-size:24px;
+      line-height:1.14;
+      letter-spacing:-.4px;
+    }
+
+    .facts{
+      display:grid;
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .fact{
+      display:grid;
+      gap:6px;
+      padding:14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(0,0,0,.16);
+    }
+
+    .fact-label{
+      font-size:12px;
+      font-weight:700;
+      color:var(--muted-2);
+      text-transform:uppercase;
+      letter-spacing:.55px;
+    }
+
+    .fact-value{
+      font-size:14px;
+      font-weight:700;
+      color:var(--text);
+      line-height:1.45;
+    }
+
+    .fact-value a{
+      color:var(--brand);
+      text-decoration:none;
+      overflow-wrap:anywhere;
+    }
+
+    .fact-value a:hover{text-decoration:underline}
+
+    .hero-card-actions{
+      display:grid;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .helper{
+      margin-top:14px;
+      font-size:13px;
+      line-height:1.68;
+      color:var(--muted);
+    }
+
+    .trust-bar{
+      padding:4px 0 14px;
+    }
+
+    .trust-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+    }
+
+    .trust-item{
+      padding:16px;
+      border-radius:18px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+    }
+
+    .trust-title{
+      display:block;
+      font-size:14px;
+      font-weight:800;
+      color:var(--text);
+      margin-bottom:6px;
+    }
+
+    .trust-text{
+      display:block;
+      font-size:13px;
+      line-height:1.58;
+      color:var(--muted);
+    }
+
+    .section{
+      padding:74px 0;
+    }
+
+    .section-alt{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+
+    .section-head{
+      max-width:860px;
+      margin-bottom:26px;
+    }
+
+    .section-head h2{
+      margin:14px 0 10px;
+      font-size:clamp(28px, 4vw, 42px);
+      line-height:1.08;
+      letter-spacing:-.8px;
+    }
+
+    .section-head p{
+      margin:0;
+      font-size:16px;
+      line-height:1.8;
+      color:var(--muted);
+    }
+
+    .cards{
+      display:grid;
+      gap:18px;
+    }
+
+    .cards-3{grid-template-columns:repeat(3,1fr)}
+    .cards-2{grid-template-columns:repeat(2,1fr)}
+
+    .card,
+    .panel,
+    .coverage-box,
+    .contact-card,
+    .message-card,
+    .proof-strip{
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.025));
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .card h3,
+    .panel h3,
+    .coverage-box h3,
+    .contact-card h3,
+    .message-card h3,
+    .proof-strip h3{
+      margin:0 0 12px;
+      font-size:21px;
+      line-height:1.2;
+      letter-spacing:-.28px;
+    }
+
+    .card-icon{
+      width:42px;
+      height:42px;
+      border-radius:12px;
+      display:grid;
+      place-items:center;
+      margin-bottom:14px;
+      font-size:13px;
+      font-weight:800;
+      color:#071120;
+      background:linear-gradient(135deg,var(--brand),var(--brand-2));
+    }
+
+    .card ul,
+    .mini ul{
+      margin:0;
+      padding-left:18px;
+      color:var(--muted);
+      line-height:1.8;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .ticks{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:12px;
+    }
+
+    .ticks li{
+      position:relative;
+      padding-left:28px;
+      color:var(--muted);
+      line-height:1.72;
+    }
+
+    .ticks li::before{
+      content:"✓";
+      position:absolute;
+      left:0;
+      top:0;
+      color:var(--brand);
+      font-weight:900;
+    }
+
+    .ticks strong{color:var(--text)}
+
+    .panel-highlight{
+      border-color:rgba(98,231,213,.22);
+      background:linear-gradient(180deg, rgba(98,231,213,.08), rgba(255,255,255,.02));
+    }
+
+    .proof-strip{
+      margin-top:18px;
+    }
+
+    .proof-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+
+    .proof-item{
+      padding:14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(0,0,0,.14);
+    }
+
+    .proof-item strong{
+      display:block;
+      margin-bottom:6px;
+      color:var(--text);
+      font-size:14px;
+    }
+
+    .proof-item span{
+      display:block;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.6;
+    }
+
+    .compliance-note{
+      margin-top:18px;
+      padding:16px 18px;
+      border-radius:18px;
+      border:1px solid rgba(109,169,255,.16);
+      background:rgba(109,169,255,.07);
+      color:var(--muted);
+      line-height:1.72;
+    }
+
+    .coverage{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .coverage-box p{
+      margin:0 0 8px;
+      color:var(--muted);
+      line-height:1.72;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      align-items:start;
+    }
+
+    .contact-line{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      margin:0 0 12px;
+      padding:14px 16px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(0,0,0,.16);
+    }
+
+    .contact-line span{
+      color:var(--muted-2);
+      font-size:13px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.45px;
+    }
+
+    .contact-line a{
+      color:var(--brand);
+      text-decoration:none;
+      font-weight:800;
+      text-align:right;
+      overflow-wrap:anywhere;
+    }
+
+    .contact-line a:hover{text-decoration:underline}
+
+    .contact-cta-stack{
+      display:grid;
+      gap:10px;
+      margin-top:16px;
+    }
+
+    .message-box{
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.18);
+      color:var(--muted);
+      border-radius:18px;
+      padding:16px;
+      line-height:1.76;
+      white-space:pre-line;
+      font-size:15px;
+    }
+
+    .action-stack{
+      display:grid;
+      gap:10px;
+      margin-top:16px;
+    }
+
+    .status{
+      margin-top:12px;
+      min-height:20px;
+      font-size:13px;
+      font-weight:700;
+      color:var(--brand);
+    }
+
+    .mini{
+      margin-top:16px;
+      padding-top:16px;
+      border-top:1px solid var(--line);
+    }
+
+    .mini h4{
+      margin:0 0 10px;
+      font-size:14px;
+      font-weight:800;
+      color:var(--text);
+    }
+
+    .business-details{
+      margin:0;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:14px;
+    }
+
+    .business-details strong{
+      color:var(--text);
+    }
+
+    .footer{
+      margin-top:22px;
+      padding-top:18px;
+      border-top:1px solid var(--line);
+    }
+
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:18px;
+      align-items:start;
+    }
+
+    .footer p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.7;
+    }
+
+    .footer-links{
+      display:grid;
+      gap:8px;
+      justify-items:end;
+    }
+
+    .footer-links a{
+      color:var(--muted);
+      text-decoration:none;
+      font-size:13px;
+    }
+
+    .footer-links a:hover{
+      color:var(--text);
+    }
+
+    .floating-btn{
+      position:fixed;
+      right:20px;
+      z-index:220;
+      width:64px;
+      height:64px;
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      text-decoration:none;
+      box-shadow:0 16px 34px rgba(0,0,0,.35);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+
+    .floating-btn:hover{
+      transform:translateY(-2px) scale(1.03);
+      box-shadow:0 20px 40px rgba(0,0,0,.40);
+    }
+
+    .floating-btn svg{
+      width:30px;
+      height:30px;
+      fill:currentColor;
+    }
+
+    .floating-btn span{
+      position:absolute;
+      right:76px;
+      white-space:nowrap;
+      background:rgba(7,17,31,.94);
+      color:#fff;
+      font-size:13px;
+      font-weight:700;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.08);
+      opacity:0;
+      transform:translateX(8px);
+      pointer-events:none;
+      transition:opacity .2s ease, transform .2s ease;
+    }
+
+    .floating-btn:hover span{
+      opacity:1;
+      transform:translateX(0);
+    }
+
+    .floating-whatsapp{
+      bottom:20px;
+      background:linear-gradient(135deg,var(--success),var(--success-2));
+    }
+
+    .floating-phone{
+      bottom:96px;
+      background:linear-gradient(135deg,var(--phone),var(--phone-2));
+    }
+
+    @media (max-width:1080px){
+      .hero-grid,
+      .cards-3,
+      .cards-2,
+      .grid-2,
+      .coverage,
+      .contact-grid,
+      .footer-grid{
+        grid-template-columns:1fr;
+      }
+
+      .proof-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .trust-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      h1{max-width:none}
+
+      .footer-links{
+        justify-items:start;
+      }
+    }
+
+    @media (max-width:760px){
+      .container{
+        width:min(var(--max), calc(100% - 28px));
+      }
+
+      .header-grid{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .nav{
+        width:100%;
+        gap:12px;
+      }
+
+      .hero{
+        padding:40px 0 18px;
+      }
+
+      .section{
+        padding:58px 0;
+      }
+
+      .trust-grid,
+      .proof-grid{
+        grid-template-columns:1fr;
+      }
+
+      .contact-line{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .contact-line a{
+        text-align:left;
+      }
+
+      .cta-row{
+        display:grid;
+        grid-template-columns:1fr;
+      }
+
+      .cta-row .btn{
+        width:100%;
+      }
+
+      .floating-btn{
+        width:58px;
+        height:58px;
+        right:16px;
+      }
+
+      .floating-whatsapp{bottom:16px}
+      .floating-phone{bottom:84px}
+
+      .floating-btn svg{
+        width:28px;
+        height:28px;
+      }
+
+      .floating-btn span{
+        display:none;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -279,373 +1137,4 @@
       </div>
     </section>
 
-    <!-- NOWA SEKCJA: OPINIE -->
-    <section id="testimonials" class="section section-alt">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Client feedback</span>
-          <h2>What contractors say about working with us</h2>
-          <p>We're just starting out and already building trust with regional builders.</p>
-        </div>
-
-        <div class="cards cards-3">
-          <div class="card">
-            <div class="card-icon">⭐</div>
-            <h3>“Reliable and efficient”</h3>
-            <p class="lead-small">Tom's team left our site spotless before handover. Great communication, turned up on time, worked around our trades.</p>
-            <p style="margin-top:12px;"><strong>– Site Manager, Leicester</strong></p>
-          </div>
-
-          <div class="card">
-            <div class="card-icon">⭐</div>
-            <h3>“Sparkle clean exceeded expectations”</h3>
-            <p class="lead-small">We needed a fast builders clean before client walkthrough. Everything was perfect – frames, sills, skirtings.</p>
-            <p style="margin-top:12px;"><strong>– Project Lead, Loughborough</strong></p>
-          </div>
-
-          <div class="card">
-            <div class="card-icon">⭐</div>
-            <h3>“Welfare units always fresh”</h3>
-            <p class="lead-small">Regular cleaning of our canteen and toilets – no complaints from the lads. That says it all.</p>
-            <p style="margin-top:12px;"><strong>– Contractor, Market Harborough</strong></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- NOWA SEKCJA: ZESPÓŁ (ZDJĘCIA) -->
-    <section id="team" class="section">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Meet the team</span>
-          <h2>The people behind the clean</h2>
-          <p>Experienced, site-ready, and fully certified.</p>
-        </div>
-
-        <div class="cards cards-3">
-          <div class="card" style="text-align:center">
-            <div style="width:100%; height:180px; background:rgba(255,255,255,0.05); border-radius:16px; margin-bottom:16px; display:flex; align-items:center; justify-content:center; color:var(--muted); border:1px dashed var(--line);">
-              [zdj. ekipy]
-            </div>
-            <h3 style="margin-bottom:4px;">Tom Maintenance team</h3>
-            <p class="lead-small" style="color:var(--muted-2);">CSCS certified • PPE ready</p>
-          </div>
-
-          <div class="card" style="text-align:center">
-            <div style="width:100%; height:180px; background:rgba(255,255,255,0.05); border-radius:16px; margin-bottom:16px; display:flex; align-items:center; justify-content:center; color:var(--muted); border:1px dashed var(--line);">
-              [zdj. na budowie]
-            </div>
-            <h3 style="margin-bottom:4px;">On-site cleaning</h3>
-            <p class="lead-small" style="color:var(--muted-2);">Live projects • Welfare • Handover</p>
-          </div>
-
-          <div class="card" style="text-align:center">
-            <div style="width:100%; height:180px; background:rgba(255,255,255,0.05); border-radius:16px; margin-bottom:16px; display:flex; align-items:center; justify-content:center; color:var(--muted); border:1px dashed var(--line);">
-              [zdj. sprzętu]
-            </div>
-            <h3 style="margin-bottom:4px;">Professional equipment</h3>
-            <p class="lead-small" style="color:var(--muted-2);">Industrial • Safe • COSHH compliant</p>
-          </div>
-        </div>
-
-        <p class="helper" style="text-align:center; margin-top:24px;">
-          📸 Wkrótce dodamy zdjęcia z realizacji – już pracujemy nad pierwszymi projektami.
-        </p>
-      </div>
-    </section>
-
-    <section id="compliance" class="section section-alt">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Compliance & onboarding</span>
-          <h2>Clear contractor-facing wording without overclaiming</h2>
-          <p>
-            Compliance information is presented in line with project scope, onboarding route
-            and site-specific requirements. The aim is practical readiness, not inflated claims.
-          </p>
-        </div>
-
-        <div class="cards cards-2">
-          <article class="card">
-            <h3>Core compliance approach</h3>
-            <ul class="ticks">
-              <li><strong>Public Liability Insurance:</strong> £5 million</li>
-              <li><strong>RAMS:</strong> available and adjusted to project scope where required</li>
-              <li><strong>COSHH:</strong> product information and safe-use controls available for products used</li>
-              <li><strong>Inductions:</strong> work carried out in line with contractor onboarding and site rules</li>
-              <li><strong>PPE:</strong> aligned to task and site-specific requirements</li>
-              <!-- DODANY CSCS -->
-              <li><strong>CSCS cards:</strong> All site operatives hold valid, relevant CSCS cards</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>Project access and requirements</h3>
-            <ul class="ticks">
-              <li>Site access and onboarding requirements reviewed per project</li>
-              <li>Additional client or developer requirements assessed per project basis</li>
-              <li>Compliance / capability information available to support onboarding discussions</li>
-              <li>Completed items stated only where confirmed and documented</li>
-              <li>Contractor and construction cleaning only</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="compliance-note">
-          <strong>Compliance / capability information available on request.</strong>
-          Final site access steps, induction requirements, permit systems and project-specific onboarding items may vary by contractor, developer and site.
-        </div>
-      </div>
-    </section>
-
-    <section id="coverage" class="section">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Coverage</span>
-          <h2>Leicestershire and Midlands coverage</h2>
-          <p>
-            Suitable for local and regional contractor work, subject to site scope, timing and access arrangements.
-          </p>
-        </div>
-
-        <div class="coverage">
-          <div class="coverage-box">
-            <h3>Primary area</h3>
-            <p>Leicester • Loughborough • Hinckley • Market Harborough</p>
-            <p>Plus nearby towns, industrial areas and surrounding contractor sites.</p>
-          </div>
-
-          <div class="coverage-box">
-            <h3>Wider Midlands</h3>
-            <p>Derby • Nottingham • Coventry • Birmingham</p>
-            <p>Project dependent and agreed around programme, travel and site hours.</p>
-          </div>
-        </div>
-
-        <!-- NOWA MAPA ZASIĘGU -->
-        <div style="margin-top:24px; background:rgba(255,255,255,0.03); border:1px solid var(--line); border-radius:22px; padding:22px;">
-          <h3 style="margin-bottom:16px;">Service area map</h3>
-          <div style="background:rgba(0,0,0,0.2); border-radius:16px; height:200px; display:flex; align-items:center; justify-content:center; color:var(--muted); border:1px dashed var(--line);">
-            [mapka poglądowa – Leicestershire + Midlands]
-          </div>
-          <p class="helper" style="margin-top:12px;">
-            Primary: Leicester, Loughborough, Hinckley, Market Harborough.<br>
-            Wider: Derby, Nottingham, Coventry, Birmingham (project dependent).
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- NOWA SEKCJA: FAQ -->
-    <section id="faq" class="section section-alt">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">FAQ</span>
-          <h2>Quick answers to common questions</h2>
-          <p>For contractors who need to move fast.</p>
-        </div>
-
-        <div class="cards cards-2">
-          <div class="card">
-            <h3>❓ Do you work weekends?</h3>
-            <p class="lead-small">Yes, we can schedule cleaning around your programme – including weekends if needed.</p>
-          </div>
-          <div class="card">
-            <h3>❓ What’s the typical cost?</h3>
-            <p class="lead-small">Depends on scope, but we give fixed prices before starting. No surprises.</p>
-          </div>
-          <div class="card">
-            <h3>❓ Do you provide your own equipment?</h3>
-            <p class="lead-small">Yes – industrial vacuums, mops, ladders, eco-friendly chemicals. We arrive ready.</p>
-          </div>
-          <div class="card">
-            <h3>❓ What areas do you cover?</h3>
-            <p class="lead-small">Leicestershire as core, plus wider Midlands for larger projects.</p>
-          </div>
-          <div class="card">
-            <h3>❓ How quickly can you start?</h3>
-            <p class="lead-small">Often within 48 hours – just send the postcode and scope.</p>
-          </div>
-          <div class="card">
-            <h3>❓ Do you have CSCS cards?</h3>
-            <p class="lead-small">Yes – all our operatives hold valid CSCS cards and follow site rules.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Contact</span>
-          <h2>Send the site details for availability and next steps</h2>
-          <p>
-            The quickest way to move forward is by phone, WhatsApp or direct email with the site postcode,
-            required scope, frequency and preferred start date.
-          </p>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-card">
-            <h3>Direct contact</h3>
-
-            <p class="contact-line">
-              <span>Email</span>
-              <a href="mailto:info@tommaintenance.co.uk">info@tommaintenance.co.uk</a>
-            </p>
-
-            <p class="contact-line">
-              <span>Phone</span>
-              <a href="tel:+447864007256">07864 007256</a>
-            </p>
-
-            <p class="contact-line">
-              <span>WhatsApp</span>
-              <a href="https://wa.me/447864007256?text=Hello%20Tom%20Maintenance%2C%20I%20would%20like%20to%20ask%20about%20site%20cleaning." target="_blank" rel="noopener noreferrer">Message on WhatsApp</a>
-            </p>
-
-            <div class="contact-cta-stack">
-              <a class="btn btn-block" href="tel:+447864007256">Call now</a>
-              <a class="btn btn-ghost btn-block" href="https://wa.me/447864007256?text=Hello%20Tom%20Maintenance%2C%20I%20would%20like%20to%20ask%20about%20site%20cleaning." target="_blank" rel="noopener noreferrer">Open WhatsApp</a>
-              <button class="btn btn-outline btn-block" id="copyEmailBtn2" type="button">Copy email address</button>
-            </div>
-
-            <div class="mini">
-              <h4>What to include</h4>
-              <ul>
-                <li>Company name and contact name</li>
-                <li>Site name and postcode</li>
-                <li>Required service and scope</li>
-                <li>Frequency and preferred start date</li>
-                <li>Any induction, access or site-specific requirements</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="message-card">
-            <h3>Prepared enquiry message</h3>
-            <p class="lead lead-small">
-              Copy the message below and send it by email or WhatsApp.
-            </p>
-
-            <div class="message-box" id="enquiryTemplate">Company name:
-Contact name:
-Phone:
-Email:
-
-Site name:
-Site postcode:
-
-Required service:
-- Construction site cleaning / Welfare unit cleaning / Builders clean / Sparkle clean / Mixed scope
-
-Scope details:
-
-Frequency:
-Preferred start date:
-Site hours:
-
-Any site rules, induction or access requirements:</div>
-
-            <div class="action-stack">
-              <button class="btn btn-block" id="copyTemplateBtn" type="button">Copy enquiry template</button>
-              <a class="btn btn-ghost btn-block" href="mailto:info@tommaintenance.co.uk?subject=Site%20cleaning%20enquiry&body=Company%20name%3A%0AContact%20name%3A%0APhone%3A%0AEmail%3A%0A%0ASite%20name%3A%0ASite%20postcode%3A%0A%0ARequired%20service%3A%0A-%20Construction%20site%20cleaning%20%2F%20Welfare%20unit%20cleaning%20%2F%20Builders%20clean%20%2F%20Sparkle%20clean%20%2F%20Mixed%20scope%0A%0AScope%20details%3A%0A%0AFrequency%3A%0APreferred%20start%20date%3A%0ASite%20hours%3A%0A%0AAny%20site%20rules%2C%20induction%20or%20access%20requirements%3A">Open email draft</a>
-              <a class="btn btn-outline btn-block" href="https://wa.me/447864007256?text=Hello%20Tom%20Maintenance%2C%20please%20see%20my%20site%20cleaning%20enquiry%20below.%0A%0ACompany%20name%3A%0AContact%20name%3A%0APhone%3A%0AEmail%3A%0A%0ASite%20name%3A%0ASite%20postcode%3A%0A%0ARequired%20service%3A%0A%0AScope%20details%3A%0A%0AFrequency%3A%0APreferred%20start%20date%3A%0ASite%20hours%3A%0A%0AAny%20site%20rules%2C%20induction%20or%20access%20requirements%3A" target="_blank" rel="noopener noreferrer">Open WhatsApp draft</a>
-            </div>
-
-            <div class="status" id="copyStatus" aria-live="polite"></div>
-
-            <div class="mini">
-              <h4>Business details</h4>
-              <p class="business-details">
-                Trading name: <strong>Tom Maintenance</strong><br>
-                Sector: <strong>Construction cleaning</strong><br>
-                Services: <strong>Site cleaning, welfare cleaning, builders cleans, sparkle cleans, snagging</strong><br>
-                Coverage: <strong>Leicestershire and Midlands</strong><br>
-                Insurance: <strong>Public Liability Insurance £5 million</strong><br>
-                Email: <strong>info@tommaintenance.co.uk</strong><br>
-                Phone: <strong>07864 007256</strong>
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <footer class="footer">
-          <div class="footer-grid">
-            <p>
-              © <span id="year"></span> Tom Maintenance. Contractor and construction cleaning only.<br>
-              Construction site cleaning, welfare unit cleaning, builders cleans and sparkle cleans for contractor-facing work.
-            </p>
-
-            <div class="footer-links">
-              <a href="mailto:info@tommaintenance.co.uk">info@tommaintenance.co.uk</a>
-              <a href="tel:+447864007256">07864 007256</a>
-              <a href="https://wa.me/447864007256" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-            </div>
-          </div>
-        </footer>
-      </div>
-    </section>
-  </main>
-
-  <a
-    class="floating-btn floating-phone"
-    href="tel:+447864007256"
-    aria-label="Call Tom Maintenance"
-    title="Call Tom Maintenance"
-  >
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.11.37 2.3.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.28.2 2.47.57 3.58a1 1 0 0 1-.25 1.01l-2.2 2.2z"/>
-    </svg>
-    <span>Call</span>
-  </a>
-
-  <a
-    class="floating-btn floating-whatsapp"
-    href="https://wa.me/447864007256?text=Hello%20Tom%20Maintenance%2C%20I%20would%20like%20to%20ask%20about%20site%20cleaning."
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Chat on WhatsApp"
-    title="Chat on WhatsApp"
-  >
-    <svg viewBox="0 0 32 32" aria-hidden="true">
-      <path d="M19.11 17.33c-.27-.13-1.61-.8-1.86-.89-.25-.09-.43-.13-.61.14-.18.27-.7.89-.86 1.07-.16.18-.32.2-.59.07-.27-.13-1.14-.42-2.18-1.34-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.12-.54.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.13-.61-1.47-.84-2.01-.22-.53-.44-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27 0 1.34.98 2.64 1.11 2.82.13.18 1.92 2.94 4.65 4.12.65.28 1.16.45 1.56.58.66.21 1.26.18 1.73.11.53-.08 1.61-.66 1.84-1.29.23-.63.23-1.17.16-1.29-.07-.11-.25-.18-.52-.32zM16.03 27.5h-.01a11.3 11.3 0 0 1-5.76-1.58l-.41-.24-4.28 1.12 1.14-4.17-.27-.43a11.32 11.32 0 1 1 9.59 5.3zm9.63-20.9A13.5 13.5 0 0 0 2.57 20.84L1 31l10.41-1.53a13.49 13.49 0 0 0 6.45 1.64h.01A13.5 13.5 0 0 0 25.66 6.6z"/>
-    </svg>
-    <span>WhatsApp</span>
-  </a>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    const email = "info@tommaintenance.co.uk";
-    const templateText = document.getElementById("enquiryTemplate").innerText;
-    const copyStatus = document.getElementById("copyStatus");
-
-    async function copyText(text, successMessage) {
-      try {
-        await navigator.clipboard.writeText(text);
-        copyStatus.textContent = successMessage;
-      } catch (e) {
-        copyStatus.textContent = "Copy failed. Please copy manually.";
-      }
-
-      clearTimeout(window.copyStatusTimer);
-      window.copyStatusTimer = setTimeout(() => {
-        copyStatus.textContent = "";
-      }, 2600);
-    }
-
-    document.getElementById("copyEmailBtn").addEventListener("click", function () {
-      copyText(email, "Email address copied.");
-    });
-
-    document.getElementById("copyEmailBtn2").addEventListener("click", function () {
-      copyText(email, "Email address copied.");
-    });
-
-    document.getElementById("copyTemplateBtn").addEventListener("click", function () {
-      copyText(templateText, "Enquiry template copied.");
-    });
-  </script>
-</body>
-</html>
+    <!-- NOW
