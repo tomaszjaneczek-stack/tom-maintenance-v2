@@ -81,8 +81,7 @@ button { font: inherit; cursor: pointer; }
 }
 
 .anim-fade-up {
-  opacity: 0;
-  animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .anim-d1 { animation-delay: 0.1s; }
@@ -90,6 +89,32 @@ button { font: inherit; cursor: pointer; }
 .anim-d3 { animation-delay: 0.4s; }
 .anim-d4 { animation-delay: 0.55s; }
 .anim-d5 { animation-delay: 0.7s; }
+
+/* Kill entrance animations on mobile — content must be visible immediately */
+@media (max-width: 1080px) {
+  .anim-fade-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Respect reduced-motion preference on all screen sizes */
+@media (prefers-reduced-motion: reduce) {
+  .anim-fade-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .floating-btn {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  .hero-card {
+    animation: none;
+  }
+}
 
 /* ── HEADER ── */
 .site-header {
@@ -930,8 +955,7 @@ h1 .gold {
   text-decoration: none;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  opacity: 0;
-  animation: floatIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: floatIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .floating-btn:hover {
